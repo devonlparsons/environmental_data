@@ -1,0 +1,31 @@
+---
+title: "deterministic fxn 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+require(here)
+habitat_data <- read.csv(here("data","hab.sta.csv"))
+bird_data <- read.csv(here("data","bird.sta.csv"))
+head(habitat_data)
+head(bird_data)
+range(bird_data$WIWA)
+hist(bird_data[,"CBCH"], xlab = "Chestnut Backed Chickadee Abundance", breaks = 0:7 - 0.5, main = "Chestnut Backed Chickadee Frequency Histogram")
+```
+```{r}
+install.packages("psych")
+require(psych)
+pairs.panels(habitat_data[,c("ba.con","ba.hard","ba.snag")])
+````
+(command option i) creates a chunk for you
+
+
+
+
+
+

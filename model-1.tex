@@ -1,0 +1,431 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Using models 1},
+  pdfauthor={Devon Parsons},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Using models 1}
+\author{Devon Parsons}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}\AttributeTok{echo =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{require}\NormalTok{(here)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: here
+\end{verbatim}
+
+\begin{verbatim}
+## here() starts at /Users/devonparsons/environmental_data
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{catrate }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"catrate.csv"}\NormalTok{))}
+
+\FunctionTok{head}\NormalTok{(catrate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   pond success years  cat.rate
+## 1    2       5     7 0.2857143
+## 2    3       5     7 0.2857143
+## 3    4       6     7 0.1428571
+## 4    5       4     7 0.4285714
+## 5    6       0     7 1.0000000
+## 6    7       1     4 0.7500000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(catrate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       pond       success          years          cat.rate     
+##  Min.   : 2   Min.   :0.000   Min.   :1.000   Min.   :0.1429  
+##  1st Qu.: 5   1st Qu.:1.000   1st Qu.:3.000   1st Qu.:0.2857  
+##  Median : 8   Median :2.000   Median :4.000   Median :0.4286  
+##  Mean   : 8   Mean   :2.538   Mean   :4.692   Mean   :0.5394  
+##  3rd Qu.:11   3rd Qu.:5.000   3rd Qu.:7.000   3rd Qu.:0.7500  
+##  Max.   :14   Max.   :6.000   Max.   :7.000   Max.   :1.0000
+\end{verbatim}
+
+\hypertarget{section}{%
+\section{\#1}\label{section}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(catrate}\SpecialCharTok{$}\NormalTok{cat.rate, }\AttributeTok{main =} \StringTok{"Salamander Reproduction Catastrophic Rates"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Catastrophe Rate"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{model-1_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\hypertarget{section-1}{%
+\section{\#2}\label{section-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{shapiro.test}\NormalTok{(catrate}\SpecialCharTok{$}\NormalTok{cat.rate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  catrate$cat.rate
+## W = 0.86202, p-value = 0.04097
+\end{verbatim}
+
+\hypertarget{section-2}{%
+\section{\#3}\label{section-2}}
+
+Null hypothesis- the data were sampled from a normally distributed
+population
+
+\hypertarget{section-3}{%
+\section{\#4}\label{section-3}}
+
+If I made a significance value of 0.05, the p-value is smaller than that
+value meaning its very likely our sample came from a non normally
+distributed population.
+
+\hypertarget{section-4}{%
+\section{\#5}\label{section-4}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ catrate}\SpecialCharTok{$}\NormalTok{cat.rate, }\AttributeTok{mu =} \FloatTok{0.28}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  One Sample t-test
+## 
+## data:  catrate$cat.rate
+## t = 3.0261, df = 12, p-value = 0.005271
+## alternative hypothesis: true mean is greater than 0.28
+## 95 percent confidence interval:
+##  0.3866123       Inf
+## sample estimates:
+## mean of x 
+## 0.5393773
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ catrate}\SpecialCharTok{$}\NormalTok{cat.rate, }\AttributeTok{mu =} \FloatTok{0.28}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"less"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  One Sample t-test
+## 
+## data:  catrate$cat.rate
+## t = 3.0261, df = 12, p-value = 0.9947
+## alternative hypothesis: true mean is less than 0.28
+## 95 percent confidence interval:
+##       -Inf 0.6921422
+## sample estimates:
+## mean of x 
+## 0.5393773
+\end{verbatim}
+
+\hypertarget{section-5}{%
+\section{\#6}\label{section-5}}
+
+The null hypothesis for the t test is that the catastrophic rate is the
+same as the pond-late filling rate.
+
+\hypertarget{section-6}{%
+\section{\#7}\label{section-6}}
+
+This is a one-tailed test, as I tested for the possibility of the
+relationship being greater than. P value is smaller than .05
+
+\hypertarget{section-7}{%
+\section{\#8}\label{section-7}}
+
+p-value = 0.01054
+
+\hypertarget{section-8}{%
+\section{\#9}\label{section-8}}
+
+0.3526250 0.7261295
+
+\hypertarget{section-9}{%
+\section{\#10}\label{section-9}}
+
+Since the p-value is much smaller than the significance value of .05, I
+can conclude that there is strong evidence to reject the null
+hypothesis.
+
+\hypertarget{section-10}{%
+\section{\#11}\label{section-10}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(catrate}\SpecialCharTok{$}\NormalTok{cat.rate, }\AttributeTok{mu =} \DecValTok{2} \SpecialCharTok{/} \DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(catrate$cat.rate, mu = 2/7): cannot compute exact
+## p-value with ties
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  catrate$cat.rate
+## V = 85, p-value = 0.006275
+## alternative hypothesis: true location is not equal to 0.2857143
+\end{verbatim}
+
+\hypertarget{section-11}{%
+\section{\#12}\label{section-11}}
+
+p value from Wilcox test is 0.006275, and the value from the t.test is
+0.01054. If we have a significance value of 0.05, both of these are less
+than that so we could reject our null. But if it was 0.01, the Wilcox
+test would reject our null and the t.test would not be able to reject
+our null.
+
+\hypertarget{section-12}{%
+\section{\#13}\label{section-12}}
+
+Since the p-value from the Wilcox test (.006275) is smaller than our
+significance value of .05, there is strong evidence to reject the null
+hypothesis.
+
+\hypertarget{section-13}{%
+\section{\#14}\label{section-13}}
+
+The result from the one-sample t test tells us that the true mean is not
+equal to .28, but is actually .5393. The Wilcoxon rank sum test tells us
+the true mean is not equal to 0.28, but does not tell us the true mean
+value. Both tests signify that there is strong evidence the null
+hypothesis can be rejected.
+
+\hypertarget{section-14}{%
+\section{\#15}\label{section-14}}
+
+I think the Wilcoxon test is more appropriate for this data because it
+is intended for data that is not normally distributed, whereas the t
+test is best for non normally distributed data.
+
+\hypertarget{section-15}{%
+\section{\#16}\label{section-15}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{require}\NormalTok{(palmerpenguins)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: palmerpenguins
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat\_penguins }\OtherTok{=} \FunctionTok{droplevels}\NormalTok{(}\FunctionTok{subset}\NormalTok{(penguins, species }\SpecialCharTok{!=} \StringTok{"Gentoo"}\NormalTok{))}
+\NormalTok{dat\_chinstrap }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dat\_penguins, species }\SpecialCharTok{==} \StringTok{"Chinstrap"}\NormalTok{)}
+\FunctionTok{shapiro.test}\NormalTok{(dat\_chinstrap}\SpecialCharTok{$}\NormalTok{flipper\_length\_mm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  dat_chinstrap$flipper_length_mm
+## W = 0.98891, p-value = 0.8106
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat\_adelie }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dat\_penguins, species }\SpecialCharTok{==} \StringTok{"Adelie"}\NormalTok{)}
+\FunctionTok{shapiro.test}\NormalTok{(dat\_adelie}\SpecialCharTok{$}\NormalTok{flipper\_length\_mm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Shapiro-Wilk normality test
+## 
+## data:  dat_adelie$flipper_length_mm
+## W = 0.99339, p-value = 0.72
+\end{verbatim}
+
+\hypertarget{section-16}{%
+\section{\#17}\label{section-16}}
+
+The p value for Chinstrap is .8106, and for Adelie it is .72. Both of
+the p values are larger than the significance value of .05, so we can
+not reject the null hypothesis. We can conclude that for both species,
+the flipper lengths are normally distributed.
+
+\hypertarget{section-17}{%
+\section{\#18}\label{section-17}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(dat\_adelie}\SpecialCharTok{$}\NormalTok{flipper\_length\_mm, }\AttributeTok{main =} \StringTok{"Adelie Penguin Flipper Length"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"flipper length"}\NormalTok{)}
+\FunctionTok{hist}\NormalTok{(dat\_chinstrap}\SpecialCharTok{$}\NormalTok{flipper\_length\_mm, }\AttributeTok{main =} \StringTok{"Chinstrap Penguin Flipper Length"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"flipper length"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{model-1_files/figure-latex/unnamed-chunk-9-1.pdf} \#
+\#19 The alternative hypothesis is that the flipper length between the
+Adelie and Chinstrap penguins are not the same. This is a two tailed
+test because a direction is not specified, like if the flipper length is
+greater or less than a certain number.
+
+\hypertarget{section-18}{%
+\section{\#20}\label{section-18}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(dat\_penguins}\SpecialCharTok{$}\NormalTok{flipper\_length\_mm }\SpecialCharTok{\textasciitilde{}}\NormalTok{ dat\_penguins}\SpecialCharTok{$}\NormalTok{species)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  dat_penguins$flipper_length_mm by dat_penguins$species
+## t = -5.7804, df = 119.68, p-value = 6.049e-08
+## alternative hypothesis: true difference in means between group Adelie and group Chinstrap is not equal to 0
+## 95 percent confidence interval:
+##  -7.880530 -3.859244
+## sample estimates:
+##    mean in group Adelie mean in group Chinstrap 
+##                189.9536                195.8235
+\end{verbatim}
+
+\end{document}

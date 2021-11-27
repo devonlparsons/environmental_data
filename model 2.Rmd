@@ -1,0 +1,50 @@
+---
+title: "Model 2"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: darkly
+author: "Devon Parsons"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 1 
+```{r}
+require(palmerpenguins)
+boxplot(body_mass_g ~ sex : species, data = penguins, 
+  main = "Penguin body mass vs sex and species", xlab = "Sex + Species", ylab = "Body mass (g)", 
+  names = c("Female \n Adelie", "Male \n Adelie", "Female \n Chinstrap", "Male \n Chinstrap", "Female \n Gentoo", "Male \n Gentoo"))
+
+```
+# Question 2 
+The male species of each penguin is significantly larger than its female counterpart. However, the Gentoo species (both male and female) are larger than the both genders of the other two species. Between male and female, the body mass difference is around 500 grams for all three species'. 
+
+# Question 3 
+Adding sex to the model allows us to have access to more data, and make inferences about not only gender vs mass, but also species vs mass which is a very important aspect. Including both can help us be more specific about the true correlations, and in turn improve the specificity of the model fit.  
+
+# Question 4
+```{r}
+fit_both = lm(body_mass_g ~ sex : species, data = penguins)
+summary(fit_both)
+anova(fit_both)
+```
+# Question 5
+The base case for the two-way model is *5484.84*
+
+# Question 6
+sexfemale:speciesChinstrap 
+
+# Question 7
+I did 5484.84-1957.63 giving a predicted average mass of 3527.21 grams
+
+# Question 8
+```{r}
+aggregate(body_mass_g ~ sex : species, data = penguins, FUN = mean)
+```
+The observed average body mass for female Chinstrap penguins is *3527.206 grams*
+
+

@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+output: html_document
+---
+# Question 3
+```{r}
+dbinom(0, 6, 2/3)
+```
+# Question 4 (prob to observe 4 or fewer) sum of probabilities of observing 0 thru 4
+
+```{r}
+pbinom(4, 6, 2/3)
+```
+
+#question 5 (prob of observing 4 or more, aka 3 or fewer)
+basically the pbinom function gives you the cumulative probability including the number you give in so pbinom(4,6,⅔) gives you the probabilities up to and including 4 so if you subtract that from 1 you’re getting rid of p(4) so what you need to do instead is subtract the probabilities of 0 1 2 and 3 and you do that by doing 1-pbinom(3,6,⅔)
+```{r}
+pbinom(3, 6, 2/3)
+1 - pbinom(3, 6, 2/3)
+```

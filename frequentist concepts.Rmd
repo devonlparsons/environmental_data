@@ -1,0 +1,79 @@
+---
+title: "Probability and frequentist Concepts"
+output: 
+  html_document:
+    toc: True
+    toc_float: True
+    theme: darkly
+author: "Devon Parsons"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question 1
+```{r}
+dbinom(3, 4, 0.75, log = FALSE)
+```
+1. Probability is 0.421875
+
+# Question 2 
+```{r}
+pbinom(3, 4, 0.75, log = FALSE)
+```
+2. 0.6835937
+
+# Question 3
+```{r}
+vec_1 <- pbinom(3, 5, 0.75, log = FALSE)
+vec_1
+1 - vec_1
+```
+3. 0.6328125
+
+#Question 4 - not sure if I did this right since it says less than 1.2 (not including 1.2)
+```{r}
+vec_2 <- pnorm(1.2, 2, 2, log.p = FALSE)
+vec_2
+```
+4. 0.3445783
+
+# Question 5
+```{r}
+vec_3 <- pnorm(1.2, 2, 2, log.p = FALSE)
+1 - vec_3
+```
+5. 0.6554217
+
+# Question 6
+```{r}
+vec_4 <- pnorm(1.2, 2, 2, log.p = FALSE)
+vec_4
+vec_5 <- pnorm(3.2, 2, 2, log.p = FALSE)
+vec_5
+vec_5 - vec_4
+```
+6. 0.3811686
+
+# Question 7 
+7. I chose parameters of alpha= 2.53, and beta= .63, resulting in a graph that is skewed left. As I hit the sample button, I can see the histogram gradually becoming the same left skew as the graph I created. As more samples were done, the histogram skew began to match the skew I created, with the heaviest count being on the far right. There is a large standard deviation here as many points are spread out from the left to right, majority being on the right
+
+# Question 8 
+8. For a sample size of 2, I noticed that as I hit the sample button I began to see the right side of the histogram filling out. The furthest right column was no longer the largest count, instead it was the whole right half of the histogram that was growing.
+
+# Questions 9-11
+9. As I press the sample button, I can see that the majority of the counts are still on the right side, however they are a little shifted away from the far right. This is the least amount of standard deviation I have seen so far, as all of the counts are within 6 columns on the right. 
+
+10. As we take more samples, we can get closer to the true mean. Now, with the option to take samples from different points in the distribution, extreme points begin to cancel out and we get samples closer to the mean. With a sample size of one, you only get the distribution itself. 
+
+11. The two main factors that determine the width of the sampling distribution of the mean are: sample size and the population standard deviation.
+
+# Question 12
+12. 25 ^ 3 = 15625 3-letter words
+
+# Question 13
+13. B = 25 ^ 1328400, which is about 16,400 more books than if I had not added one additional position to the book size. 
+
+
+

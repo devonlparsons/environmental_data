@@ -1,0 +1,20 @@
+---
+title: "In-class likelihood"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+sum(log(dpois(x = wiwa_counts, lambda = 4.00)))
+```
+```{r}
+require(here)
+bird_data <- read.csv(here("data","bird.sta.csv"))
+wiwr_counts <- bird_data$WIWR
+sum(log(dpois(x = wiwr_counts, lambda = 1.46)))
+hist(bird_data$WIWR)
+```
+

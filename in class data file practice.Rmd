@@ -1,0 +1,39 @@
+---
+title: "In-Class Data File Practice"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+```{r}
+require(here)
+
+read.csv(here("data", "catrate.csv"))
+
+read.csv(here("data", "delomys.csv"))
+
+read.csv(here("data", "rope.csv"))
+
+dat_catrate <- data.frame(read.csv(here("data", "catrate.csv")))
+
+dat_delomys <- data.frame(read.csv(here("data", "delomys.csv")))
+
+dat_rope <- data.frame(read.csv(here("data", "rope.csv")))
+```
+
+```{r}
+par(mfrow = c(3, 1))
+hist(dat_catrate$pond)
+(plot(x = dat_catrate$pond, main = "Frequency and Pond Devon Parsons", ylab = "Frequency", xlab = "Pond"))
+```
+
+```
